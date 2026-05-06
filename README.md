@@ -1,6 +1,13 @@
 # ⚡ powertrack-cli
 
+![License](https://img.shields.io/github/license/Sohanuzzaman3301/powertrack-cli?style=flat-square)
+![Release](https://img.shields.io/github/v/release/Sohanuzzaman3301/powertrack-cli?style=flat-square)
+![Actions](https://img.shields.io/github/actions/workflow/status/Sohanuzzaman3301/powertrack-cli/release.yml?style=flat-square)
+
 A vibrant, rainbow-infused battery and power monitor for your Linux terminal.
+
+> [!TIP]
+> **Add a GIF or Screenshot here!** Visuals are the best way to get people to try your terminal tools.
 
 `powertrack` reads real-time data from your system's power supply class to give you a detailed breakdown of your battery health, power consumption, and time estimates, all wrapped in a beautiful gradient interface.
 
