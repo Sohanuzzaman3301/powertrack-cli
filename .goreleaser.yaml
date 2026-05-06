@@ -1,0 +1,44 @@
+# .goreleaser.yaml
+version: 2
+project_name: powertrack-cli
+
+before:
+  hooks:
+    - python3 -m py_compile powertrack.py
+
+nfpms:
+  - id: powertrack-cli
+    package_name: powertrack-cli
+    vendor: Sohanuzzaman3301
+    homepage: https://github.com/Sohanuzzaman3301/powertrack-cli
+    maintainer: Sohanuzzaman3301 <sohanuzzaman3301@github.com>
+    description: A vibrant rainbow battery and power monitor for Linux.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    contents:
+      - src: powertrack.py
+        dst: /usr/bin/powertrack
+        type: "config|noreplace"
+        file_info:
+          mode: 0755
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - src: powertrack.py
+        dst: powertrack
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: 'checksums.txt'
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
