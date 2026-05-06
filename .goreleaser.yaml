@@ -2,7 +2,19 @@
 version: 2
 project_name: powertrack-cli
 
-# No build step needed for Python, just packaging
+# Tell GoReleaser to treat our script as a pre-built binary
+builds:
+  - id: powertrack
+    builder: prebuilt
+    binary: powertrack
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    prebuilt:
+      path: powertrack.py
+
 nfpms:
   - id: powertrack-cli
     package_name: powertrack-cli
@@ -24,10 +36,8 @@ archives:
   - format: tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
-      - src: powertrack.py
-        dst: powertrack
-      - LICENSE
-      - README.md
+      - src: README.md
+      - src: LICENSE
 
 checksum:
   name_template: 'checksums.txt'
