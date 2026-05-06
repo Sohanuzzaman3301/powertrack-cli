@@ -2,10 +2,7 @@
 version: 2
 project_name: powertrack-cli
 
-before:
-  hooks:
-    - python3 -m py_compile powertrack.py
-
+# No build step needed for Python, just packaging
 nfpms:
   - id: powertrack-cli
     package_name: powertrack-cli
@@ -20,7 +17,6 @@ nfpms:
     contents:
       - src: powertrack.py
         dst: /usr/bin/powertrack
-        type: "config|noreplace"
         file_info:
           mode: 0755
 

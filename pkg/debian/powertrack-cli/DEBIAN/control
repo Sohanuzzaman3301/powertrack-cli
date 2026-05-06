@@ -1,8 +1,0 @@
-Package: powertrack-cli
-Version: 1.0.0
-Section: utils
-Priority: optional
-Architecture: all
-Maintainer: Sohanuzzaman3301 <sohanuzzaman3301@github.com>
-Description: A vibrant rainbow battery and power monitor for Linux.
- A CLI tool that reads real-time battery metrics and health with a rainbow UI.
