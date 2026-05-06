@@ -6,8 +6,7 @@
 
 A vibrant, rainbow-infused battery and power monitor for your Linux terminal.
 
-> [!TIP]
-> **Add a GIF or Screenshot here!** Visuals are the best way to get people to try your terminal tools.
+[![asciicast](https://asciinema.org/a/0u1f9khhTJiwuh7k.svg)](https://asciinema.org/a/0u1f9khhTJiwuh7k)
 
 `powertrack` reads real-time data from your system's power supply class to give you a detailed breakdown of your battery health, power consumption, and time estimates, all wrapped in a beautiful gradient interface.
 
@@ -21,21 +20,22 @@ A vibrant, rainbow-infused battery and power monitor for your Linux terminal.
 
 ## 🚀 Installation
 
+**The Quick Way (One-liner):**
+```bash
+curl -sSL https://raw.githubusercontent.com/Sohanuzzaman3301/powertrack-cli/main/install.sh | bash
+```
+
+**The Manual Way:**
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/powertrack-cli.git
+   git clone https://github.com/Sohanuzzaman3301/powertrack-cli.git
    cd powertrack-cli
    ```
 
-2. **Make it executable:**
+2. **Run the installer:**
    ```bash
-   chmod +x powertrack.py
-   ```
-
-3. **Install to your local bin:**
-   ```bash
-   mkdir -p ~/.local/bin
-   cp powertrack.py ~/.local/bin/powertrack
+   chmod +x install.sh
+   ./install.sh
    ```
 
 ## 💻 Usage
