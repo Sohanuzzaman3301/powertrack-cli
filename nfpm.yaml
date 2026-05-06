@@ -1,0 +1,17 @@
+# nfpm.yaml
+name: "powertrack-cli"
+arch: "all"
+platform: "linux"
+version: "${VERSION}"
+section: "utils"
+priority: "optional"
+maintainer: "Sohanuzzaman3301 <sohanuzzaman3301@github.com>"
+description: "A vibrant rainbow battery and power monitor for Linux."
+vendor: "Sohanuzzaman3301"
+homepage: "https://github.com/Sohanuzzaman3301/powertrack-cli"
+license: "MIT"
+contents:
+  - src: "powertrack.py"
+    dst: "/usr/bin/powertrack"
+    file_info:
+      mode: 0755

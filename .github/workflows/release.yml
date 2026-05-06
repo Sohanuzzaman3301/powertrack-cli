@@ -9,22 +9,35 @@ permissions:
   contents: write
 
 jobs:
-  goreleaser:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@v5
+
+      - name: Install nFPM
+        run: |
+          echo 'deb [trusted=yes] https://repo.goreleaser.com/apt/ /' | sudo tee /etc/apt/sources.list.d/goreleaser.list
+          sudo apt-get update
+          sudo apt-get install -y nfpm
+
+      - name: Build Packages
+        run: |
+          # Remove 'v' from tag for the version number
+          VERSION=${GITHUB_REF_NAME#v}
+          VERSION=$VERSION nfpm pkg --packager deb
+          VERSION=$VERSION nfpm pkg --packager rpm
+          # Create a simple tarball too
+          tar -czvf powertrack-cli_${VERSION}_linux_all.tar.gz powertrack.py README.md LICENSE
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
-          python-python-version: '3.x'
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v6
-        with:
-          distribution: goreleaser
-          version: latest
-          args: release --clean
+          files: |
+            *.deb
+            *.rpm
+            *.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
